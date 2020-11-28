@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="Ribbon_Load">
+  <ribbon>
+    <tabs>
+      <!--メール編集画面のメッセージタブにリボンを作成-->
+      <tab idMso="TabNewMailMessage">
+
+        <!--ローカルファイルリンク挿入グループを作成-->
+        <group id="GroupInsertLocalFileLinks"
+               label="ローカルファイルリンク挿入"
+               autoScale="true">
+
+          <!--挿入画面起動ボタン-->
+          <button id="OpenInsertWindowButton"
+                  label="挿入画面起動&#xD;"
+                  onAction="OnInsertWindowButton"
+                  size="large"
+                  imageMso="FileLinksToFiles"
+                  screentip="ローカルファイルファイルリンク挿入画面を開きます。" />
+        </group>
+      </tab>
+    </tabs>
+  </ribbon>
+</customUI>
+
