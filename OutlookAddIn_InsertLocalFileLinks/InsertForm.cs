@@ -96,6 +96,11 @@ namespace OutlookAddIn_InsertLocalFileLinks
                         DirectoryInfo diParent = di.Parent;
                         strCurrentDirLink = diParent.FullName;
                     }
+                    else
+                    {
+                        // ありえないルート
+                        ;
+                    }
                     // リンクの生成
                     strCurrentDirLink = "<\"file://" + strCurrentDirLink + "\">";
 
