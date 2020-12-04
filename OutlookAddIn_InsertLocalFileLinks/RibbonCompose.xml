@@ -7,12 +7,12 @@
 
         <!--ローカルファイルリンク挿入グループを作成-->
         <group id="GroupInsertLocalFileLinks"
-               label="ローカルファイルリンク挿入"
+               label="挿入アドイン"
                autoScale="true">
 
           <!--挿入画面起動ボタン-->
           <button id="OpenInsertWindowButton"
-                  label="挿入画面起動&#xD;"
+                  label="ローカルファイルリンク挿入"
                   onAction="OnInsertWindowButton"
                   size="large"
                   imageMso="FileLinksToFiles"
