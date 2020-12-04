@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -53,10 +54,27 @@ namespace OutlookAddIn_InsertLocalFileLinks
         {
             string strCurrentDirLink = "";
             string strInsertLink = "";
+            Outlook.MailItem mailItem = null;
 
             Outlook.Application application = Globals.ThisAddIn.Application;
-            Outlook.Inspector inspector = application.ActiveInspector();
-            Outlook.MailItem mailItem = (Outlook.MailItem)inspector.CurrentItem;
+
+            if (Information.TypeName(application.ActiveWindow()) == "Inspector")
+            {
+                // メッセージ編集画面の場合は、ActiveInspectorのCurrentItemでMailItemを取得する。
+                mailItem = (Outlook.MailItem)application.ActiveInspector().CurrentItem;
+            }
+            else
+            {
+                // メッセージ一覧画面の場合は、ActiveExplorerから選択しているMailItemを取得する。
+                var explorer = application.ActiveExplorer();
+                foreach (var item in explorer.Selection)
+                {
+                    if (item is Outlook.MailItem)
+                    {
+                        mailItem = item as Outlook.MailItem;
+                    }
+                }
+            }
             Word.Document doc = mailItem.GetInspector.WordEditor;
 
             if (e.Data.GetData(DataFormats.FileDrop) is string[] dropitems)

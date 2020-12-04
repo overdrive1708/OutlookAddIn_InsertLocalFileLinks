@@ -24,10 +24,19 @@ namespace OutlookAddIn_InsertLocalFileLinks
         {
             string ribbonXML = String.Empty;
 
-            // メッセージ編集画面のみ、アドインを表示する。
-            if (ribbonID == "Microsoft.Outlook.Mail.Compose")
+            if (ribbonID == "Microsoft.Outlook.Explorer")
             {
-                return GetResourceText("OutlookAddIn_InsertLocalFileLinks.Ribbon.xml");
+                // メッセージ一覧画面用のリボンを読み込み
+                ribbonXML = GetResourceText("OutlookAddIn_InsertLocalFileLinks.RibbonExplorer.xml");
+            }
+            else if (ribbonID == "Microsoft.Outlook.Mail.Compose")
+            {
+                // メッセージ編集画面用のリボンを読み込み
+                ribbonXML = GetResourceText("OutlookAddIn_InsertLocalFileLinks.RibbonCompose.xml");
+            }
+            else
+            {
+                ribbonXML = String.Empty;
             }
 
             return ribbonXML;
