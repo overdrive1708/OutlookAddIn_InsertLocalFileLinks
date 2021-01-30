@@ -34,5 +34,17 @@ namespace OutlookAddIn_InsertLocalFileLinks.Properties {
                 this["IsLinkOnlyDir"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsUpgrade {
+            get {
+                return ((bool)(this["IsUpgrade"]));
+            }
+            set {
+                this["IsUpgrade"] = value;
+            }
+        }
     }
 }
